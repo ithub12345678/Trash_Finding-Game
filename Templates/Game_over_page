@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+       
+        body {  background-image: url("{{ url_for('static', filename='noob.gif') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: black;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .crt {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            animation: scanlines 1s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scanlines {
+            0% { background: rgba(0, 0, 0, 0.1); }
+            50% { background: rgba(0, 0, 0, 0.2); }
+            100% { background: rgba(0, 0, 0, 0.1); }
+        }
+
+        .game-over {
+            font-size: 50px;
+            text-shadow: 4px 4px 0px  #ff0000, -4px -4px 0px #000000;
+            animation: flicker 1s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .message {
+            font-size: 18px;
+            color:white;
+            margin-top: 20px;
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        .try-again {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #ff5050;
+            background: black;
+            border: 3px solid #00ff00;
+            cursor: pointer;
+            font-family: 'Press Start 2P', cursive;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px #000;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .try-again:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 10px #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="game-over">GAME OVER</div>
+    <div class="message">Insert Coin to Continue...</div>
+    <button class="try-again" onclick="restartGame()">Try Again</button>
+</div>
+
+<div class="crt"></div> <!-- CRT effect overlay -->
+
+<script>
+    function restartGame() {
+        window.location.href = "/"; // Redirect to the home page
+    }
+</script>
+
+</body>
+</html>
