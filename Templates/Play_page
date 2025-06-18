@@ -1,0 +1,343 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>GAME Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+     #street-view {
+            width: 70%;
+            height: 70vh; /* Full screen */
+            border: none;
+             position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);     
+        }
+        #message { 
+        
+        color: white; font-weight: bold; 
+        position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);   
+        }
+        
+    body{
+            background-image: url("{{ url_for('static', filename='retro.jpg') }}");
+    
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black;
+            color:black;
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            height: 100vh;
+            position: relative;
+
+}
+h1{
+
+
+text-align: center;
+
+}
+
+
+h4{
+color:black;
+font-size:30
+text-align:center;
+font-weight: bold;
+position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+}
+
+h5{
+position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+color:#00ff00;
+text-align:center;
+font-size:15;
+font-weight: bold;
+
+
+}
+
+h7{
+
+color:white;
+font-size:25;
+font-weight:bold;
+position: absolute;
+            top: 102.5%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+}
+p{
+color:white;
+font-size:25;
+font-weight:bold;
+position: absolute;
+            top: 100%;
+            left: 65%;
+            transform: translate(-50%, -50%);
+}
+h8{
+color:white;
+font-weight:bold;
+position: absolute;
+            top: 101.5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+
+}
+
+
+
+h9{
+color:orange;
+font-size:10;
+position: absolute;
+            top: 102.5%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+
+
+
+}
+  .container {
+            display: grid;
+            place-items: center;
+            height: 20vh;
+        }
+            
+                .button-containeR {
+            position: absolute;
+            top: 85%;
+            left: 30%;
+            transform: translate(-50%, -50%);                           
+        }
+        .button-container {
+            
+            position: absolute;
+            top: 85%;
+            left: 70%;
+            transform: translate(-50%, -50%);
+        }
+         .center-button 
+         {
+            padding: 10px 20px;
+            font-size: 10px;
+            box-shadow: 5px 5px black;
+              font-weight: bolder;
+            color: black;
+              background-color: #339999;
+              font-family: cursive;
+              border: 3px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.25s;
+            display: inline-block;
+        }
+        .Center-button 
+         {
+            padding: 10px 20px;
+            font-size: 30px;
+            box-shadow: 5px 5px black;
+              font-weight: bolder;
+            color: black;
+              background-color: #339999;
+              font-family: cursive;
+              border: 3px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.25s;
+            display: inline-block;
+        }
+        .center-button:hover 
+        {
+            background-color: #be7079;
+        }
+        .Center-button:hover 
+        {
+            background-color: #be7079;
+        }
+        
+        .center-button:active {
+    box-shadow: 0px 0px black;
+    transform: translate(5px, 5px);
+    
+}
+.Center-button:active {
+    box-shadow: 0px 0px black;
+    transform: translate(5px, 5px);
+    
+}
+ .Button-containeR {
+            position: absolute;
+            top: 95%;
+            left: 35%;
+            transform: translate(-50%, -50%);                           
+        }
+
+ .bUtton-containeR {
+            position: absolute;
+            top: 95%;
+            left: 40%;
+            transform: translate(-50%, -50%);                           
+        }
+
+
+ .buTton-containeR {
+            position: absolute;
+            top: 95%;
+            left: 50%;
+            transform: translate(-50%, -50%);                           
+        }
+
+
+ .buttOn-containeR {
+            position: absolute;
+            top: 95%;
+            left: 60%;
+            transform: translate(-50%, -50%);                           
+        }
+        .BUTTON-container{
+position: absolute;
+            top: 50%;
+            left: 92%;
+            transform: translate(-50%, -50%);   
+            
+        }
+
+
+
+ .buttoN-containeR {
+            position: absolute;
+            top: 95%;
+            left: 65%;
+            transform: translate(-50%, -50%);                           
+        }
+        
+    </style>
+</head>
+<body>
+
+<script>
+    function changeColor(btn) {
+        btn.style.background = "orange"; // Change to orange when clicked
+        btn.style.color = "white"; // Optional: Change text color for better visibility
+    }
+</script>
+
+
+<div id="street-view"></div>
+ <h3 id="message"></h3>
+    <script>
+    let panorama;
+       function loadRandomStreetview() {
+    // Define India's latitude & longitude range
+    // Generate a random lat/lng
+    const lngMin = 73.7800, lngMax = 73.9200; //  EX:PUNE City 
+    const latMin = 18.4800, latMax =18.5204;   // 
+
+    const randomLat = latMin + Math.random() * (latMax - latMin);
+    const randomLng = lngMin + Math.random() * (lngMax - lngMin);
+
+    const messageContainer = document.getElementById("message");
+    const streetViewService = new google.maps.StreetViewService();
+    const streetViewContainer = document.getElementById("street-view");
+    const randomLocation = { lat: randomLat, lng: randomLng };
+    streetViewService.getPanorama({ location: randomLocation, radius: 50 }, (data, status) => {
+               
+        if (status === "OK" && data.location.pano) {
+            messageContainer.innerHTML = "";
+        panorama = new google.maps.StreetViewPanorama(streetViewContainer, {
+              pano: data.location.pano,
+              pov: { heading: 270, pitch: 0 },
+             zoom: 1
+        });
+
+
+    } else {
+                    console.log("No movable Street View found, trying again...");
+                    messageContainer.innerHTML = "No movable Street View found, trying again...";
+                    loadRandomStreetView(); // Retry if the location isn't navigable
+                }
+            });
+        }
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9Io9GsANMd-eSBvbSOVX7Jsvg5WAXQRE&callback=loadRandomStreetview" async defer></script>
+
+ 
+    <h1>Find Trash In Indian Cities.</h1>
+
+    <h5>City: CITY</h5>
+    <h4>TRASH </h4>
+    
+   <div class="button-containeR">
+ <button type="submit" class="center-button"  class="retro-button"  onclick="changeColor(this)">YES</button> 
+ </div>
+
+   <div class="button-container">
+ 
+ <button type="submit" class="center-button" class="retro-button" onclick="changeColor(this)">NO</button>
+    </div>
+
+  <div class="Button-containeR">
+    <form action="/play2"> 
+     <button type="submit" class="Center-button">1</button>
+   </form>
+    </div>
+   
+  <div class="bUtton-containeR">
+  <form action="/play2"> 
+ <button type="submit" class="Center-button">2</button>
+   </form>
+    </div>
+
+  <div class="buTton-containeR">
+  <form action="/play2"> 
+ <button type="submit" class="Center-button">3</button>
+   </form>
+    </div>
+
+
+  <div class="buttOn-containeR">
+  <form action="/play2"> 
+ <button type="submit" class="Center-button">4</button>
+   </form>
+    </div>
+
+
+
+  <div class="buttoN-containeR">
+  <form action="/play2"> 
+ <button type="submit" class="Center-button">5</button>
+   </form>
+    </div>
+
+
+<h7> BADDDD </h7>
+<h8> NEUTRAL</h8>
+<p> G000DD </p>
+     <h9>By-Anshul Laxane</h9>
+
+
+    
+<div class="BUTTON-container">
+ <button onclick="location.reload()" class="center-button">Get Random Street View</button>
+
+ </div>
+ 
+</body>
+</html>
