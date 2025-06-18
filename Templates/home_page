@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trash Finding Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='classic.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black;
+        
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            position: relative;
+        }
+
+        h1 {
+            margin-top: 20px;
+            }
+            
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: orange	;
+            font-size: 15px;
+        }
+        
+        .button-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+         .center-button 
+         {
+            padding: 10px 20px;
+            font-size: 30px;
+            box-shadow: 5px 5px black;
+              font-weight: bolder;
+            color: black;
+              background-color: #339999;
+              font-family: cursive;
+              border: 3px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.25s;
+            display: inline-block;
+        }
+        .center-button:hover 
+        {
+            background-color: #be7079;
+        }
+        
+        .center-button:active {
+    box-shadow: 0px 0px black;
+    transform: translate(5px, 5px);
+    
+}
+
+    </style>
+</head>
+<body>
+
+    <h1>TRASH FINDING GAME</h1>
+ <div class="button-container">
+ 
+ <form action="/next" method="GET">
+        <button type="submit" class="center-button">START</button>
+    </form>
+
+</div>
+<div class="footer">Made by Anshul Laxane</div>
+
+</body>
+</html>
 
