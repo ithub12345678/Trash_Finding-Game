@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>TRASH FINDING GAME</title>
+    <style>
+body{
+            background-image: url("{{ url_for('static', filename='rider.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            position: relative;
+
+}
+   h1 {
+            margin-top: 20px;
+            }
+
+             h4 {
+            font-family: "Press Start 2P", cursive;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px black;
+            font-size: 30px; /* Fixed font-size */
+            text-align: center;
+            margin-bottom: 5px; /* Adjust spacing */
+             position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: orange	;
+            font-size: 15px;
+        }
+
+        input {
+            width: 250px;
+            padding: 10px;
+            border: 2px solid #ff5733;
+            border-radius: 10px;
+            background-color: #f0f8ff;
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: "Arial", cursive; /* Fixed font-family */
+            text-align: center;
+            display: block;
+            margin: 20px auto; /* Centers input */
+            outline: none;
+            transition: all 0.3s ease-in-out;
+             position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        input:hover {
+            border-color: #ffcc00;
+        }
+
+        input:focus {
+            border-color: #008cff;
+            background-color: #e6f7ff;
+            box-shadow: 0px 0px 10px #ff4500;
+        }
+
+        input::placeholder {
+            color: gray;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        .container {
+            display: grid;
+            place-items: center;
+            height: 20vh;
+        }
+            
+                .button-container {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+         .center-button 
+         {
+            padding: 10px 20px;
+            font-size: 30px;
+            box-shadow: 5px 5px black;
+              font-weight: bolder;
+            color: black;
+              background-color: #339999;
+              font-family: cursive;
+              border: 3px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.25s;
+            display: inline-block;
+        }
+        .center-button:hover 
+        {
+            background-color: #be7079;
+        }
+        
+        .center-button:active {
+    box-shadow: 0px 0px black;
+    transform: translate(5px, 5px);
+    
+}
+
+    </style>
+</head>
+<body>
+  <h1>Welcome to the Trash Finding Game</h1>
+    <div class="container">
+      <h4>ENTER YOUR USERNAME</h4>
+  <form action="/game" method="GET">  <!-- Form wraps both elements -->
+      <input type="text" name="username" id="playerNameInput" placeholder="Enter Your Username" required> 
+        <div class="button-container">
+                <button type="submit" class="center-button">PLAY</button>
+        </div>
+    </div>
+
+
+
+      <div class="footer">Made by Anshul Laxane</div>
+</body>
+</html>
