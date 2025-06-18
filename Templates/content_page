@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<title>TRASH FINDING GAME</title>
+<style>
+body{
+            background-image: url("{{ url_for('static', filename='aurora.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            position: relative;
+
+}
+
+ h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-family: "Press Start 2P", cursive;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px black;
+            font-size: 30px; /* Fixed font-size */
+            
+            }
+
+h3{
+
+            text-align: center;
+
+ position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+
+
+}
+
+
+p{
+            text-align: center;
+
+ position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+
+}
+
+            
+ .footer {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: orange	;
+            font-size: 15px;
+        }
+           table {
+            width: 80%;  /* Adjust width */
+            margin: 20px auto; /* Center table with margin */
+            border-collapse: collapse; /* Remove double borders */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        th, td {
+            border: 2px solid black; /* Border for each cell */
+            padding: 12px; /* Add space inside cells */
+            text-align: center; /* Center align text */
+        }
+        
+        th {
+            background-color: black; /* Header background color */
+            color: yellow; /* Header text color */
+            font-size: 20px;
+        }
+        
+        td {
+            font-size: 20px;
+        }
+               
+        tr:hover {
+            background-color: black; /* Highlight row on hover */
+        }
+
+        .container {
+            display: grid;
+            place-items: center;
+            height: 20vh;
+        }
+            
+                .button-container {
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+         .center-button 
+         {
+            padding: 10px 20px;
+            font-size: 30px;
+            box-shadow: 5px 5px black;
+              font-weight: bolder;
+            color: black;
+              background-color: #339999;
+              font-family: cursive;
+              border: 3px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.25s;
+            display: inline-block;
+        }
+        .center-button:hover 
+        {
+            background-color: #be7079;
+        }
+        
+        .center-button:active {
+    box-shadow: 0px 0px black;
+    transform: translate(5px, 5px);
+    
+}
+
+
+
+</style>
+
+</head> 
+
+<body>     
+
+<h1>TRASH FINDING GAME</h1>   
+
+    <table>
+        <tr>
+            <th>Region</th>
+            <th>Cities</th>
+        </tr>
+        <tr>
+            <td>North India</td>
+            <td>Delhi,Chandigarh </td>
+        </tr>
+        <tr>
+            <td>South India</td>
+            <td>Bangalore, Chennai</td>
+        </tr>
+        <tr>
+            <td>West India</td>
+            <td>Mumbai, Pune</td>
+        </tr>
+        <tr>
+            <td>East India</td>
+            <td>Kolkata,Patna</td>
+        </tr>
+    </table>
+  <div class="button-container">
+     <form action="/play1"> 
+        <button type="submit" class ="center-button">PLAY GAME</button>
+     </form>
+</div>
+     <div class="footer">Made by Anshul Laxane</div>
+
+
+ <h3>Welcome, {{ username }}!</h3> 
+    <p>The game begins now...</p>    
+</body>
+
+</html>
